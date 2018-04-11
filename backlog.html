@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myJiraBoardApp">
 
 <head>
   <meta charset="utf-8">
@@ -60,211 +60,10 @@
         <li class="breadcrumb-item active">Personal Project</li>
       </ol>
       <!-- Example DataTables Card-->
-      <div class="card mb-3">
+      <div class="card mb-3" ng-controller="ticketsController as ticketsCtrl">
         <div class="card-header">
           <i class="fa fa-table"></i> Tickets</div>
-        <div class="card-body" ng-init="
-        ticket=[{
-  '_id':'1'
-  'name': 'MJB 1',
-  'description': 'create login page view login.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'2'
-  'name': 'MJB 2',
-  'description': 'create register page view register.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'3'
-  'name': 'MJB 3',
-  'description': 'create forgot password page view forgot-password.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'4'
-  'name': 'MJB 4',
-  'description': 'create dashboard page view dashboard.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'5'
-  'name': 'MJB 5',
-  'description': 'create backlog page view. Backlog.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'6'
-  'name': 'MJB 6',
-  'description': 'create project task page view. /project_id.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'7'
-  'name': 'MJB 7',
-  'description': 'create strike through task bar in dashboard',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'8'
-  'name': 'MJB 8',
-  'description': 'To be done tickets toBeDone.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'9'
-  'name': 'MJB 9',
-  'description': 'review tickets review.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'10'
-  'name': 'MJB 10',
-  'description': 'Bug Tickets bugs.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'11'
-  'name': 'MJB 11',
-  'description': 'Done Tickets done.html',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'12'
-  'name': 'SUP 1',
-  'description': 'set up python scrapy code',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'13'
-  'name': 'SUP 2',
-  'description': 'Extract Data From Manufacturers',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'14'
-  'name': 'SUP 3',
-  'description': 'Build API',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'15'
-  'name': 'SUP 4',
-  'description': 'Have HTML Pages Ready',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'16'
-  'name': 'EG 1',
-  'description': 'sample ticket',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'17'
-  'name': 'EG 2',
-  'description': 'sample ticket',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'18'
-  'name': 'EG 3',
-  'description': 'sample ticket',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'19'
-  'name': 'EG 4',
-  'description': 'sample ticket',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-},{
-  '_id':'20'
-  'name': 'EG 5',
-  'description': 'sample ticket',
-  'project': 'My Jira Board',
-  'status': 'To Do',
-  'priority': 'Major',
-  'createdAt': '04/11/2018',
-  'assignee': 'Srividya Majeti',
-  'createdBy': 'Srividya Majeti'
-}]">
+        <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
@@ -279,169 +78,16 @@
                   <th>Created By</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                   <th>Name</th>
-                  <th>Description</th>
-                  <th>Project Name</th>
-                  <th>Status</th>
-                  <th>Priority</th>
-                  <th>Date Created</th>
-                  <th>Assignee</th>
-                  <th>Created By</th>
-                </tr>
-              </tfoot>
               <tbody>
-                <tr>
-                  <td>{{ticket[0].name}}</td>
-                  <td>create login page view login.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 2</td>
-                  <td>create register page view register.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Dinesh Paladhi</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 3</td>
-                  <td>create forgot password page view forgot-password.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 4</td>
-                  <td>create dashboard page view dashboard.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Dinesh Paladhi</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 5</td>
-                  <td>create backlog page view. Backlog.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 6</td>
-                  <td>create project task page view. /project_id.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 7</td>
-                  <td>create strike through task bar in dashboard</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Dinesh Paladhi</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                
-                <tr>
-                  <td>MJB 8</td>
-                  <td>To be done tickets toBeDone.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 9</td>
-                  <td>review tickets  review.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 10</td>
-                  <td>Bug Tickets bugs.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 11</td>
-                  <td>Done Tickets done.html</td>
-                  <td>My Jira Board</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>SUP 1</td>
-                  <td>set up python scrapy code</td>
-                  <td>Start Up Project</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>SUP 2</td>
-                  <td>Extract Data From Manufacturers</td>
-                  <td>Start Up Project</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>SUP 3</td>
-                  <td>Build API</td>
-                  <td>Start Up Project</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>SUP 4</td>
-                  <td>Have HTML Pages Ready</td>
-                  <td>Start Up Project</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
+                <tr ng-repeat="ticket in ticketsCtrl.tickets">
+                  <td>{{ticket.name}}</td>
+                  <td>{{ticket.description}}</td>
+                  <td>{{ticket.project}}</td>
+                  <td>{{ticket.status}}</td>
+                  <td>{{ticket.priority}}</td>
+                  <td>{{ticket.createdAt}}</td>
+                  <td>{{ticket.assignee}}</td>
+                  <td>{{ticket.createdBy}}</td>
                 </tr>
               </tbody>
             </table>
@@ -493,6 +139,215 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+    <script>
+    var app = angular.module('myJiraBoardApp', []);
+    app.controller('ticketsController', function() {
+      var tickets=[
+        {
+            '_id':'1',
+            'name': 'MJB 1',
+            'description': 'create login page view login.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'2',
+            'name': 'MJB 2',
+            'description': 'create register page view register.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'3',
+            'name': 'MJB 3',
+            'description': 'create forgot password page view forgot-password.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'4',
+            'name': 'MJB 4',
+            'description': 'create dashboard page view dashboard.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'5',
+            'name': 'MJB 5',
+            'description': 'create backlog page view. Backlog.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'6',
+            'name': 'MJB 6',
+            'description': 'create project task page view. /project_id.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'7',
+            'name': 'MJB 7',
+            'description': 'create strike through task bar in dashboard',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'8',
+            'name': 'MJB 8',
+            'description': 'To be done tickets toBeDone.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'9',
+            'name': 'MJB 9',
+            'description': 'review tickets review.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'10',
+            'name': 'MJB 10',
+            'description': 'Bug Tickets bugs.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'11',
+            'name': 'MJB 11',
+            'description': 'Done Tickets done.html',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'12',
+            'name': 'SUP 1',
+            'description': 'set up python scrapy code',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'13',
+            'name': 'SUP 2',
+            'description': 'Extract Data From Manufacturers',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'14',
+            'name': 'SUP 3',
+            'description': 'Build API',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'15',
+            'name': 'SUP 4',
+            'description': 'Have HTML Pages Ready',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'16',
+            'name': 'EG 1',
+            'description': 'sample ticket',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'17',
+            'name': 'EG 2',
+            'description': 'sample ticket',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'18',
+            'name': 'EG 3',
+            'description': 'sample ticket',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'19',
+            'name': 'EG 4',
+            'description': 'sample ticket',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          },{
+            '_id':'20',
+            'name': 'EG 5',
+            'description': 'sample ticket',
+            'project': 'My Jira Board',
+            'status': 'To Do',
+            'priority': 'Major',
+            'createdAt': '04/11/2018',
+            'assignee': 'Srividya Majeti',
+            'createdBy': 'Srividya Majeti'
+          }
+        ];
+          this.tickets=tickets;
+    });
+</script>
   </div>
 </body>
 

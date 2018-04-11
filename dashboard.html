@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myJiraBoardApp">
 
 <head>
   <meta charset="utf-8">
@@ -16,6 +16,7 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -44,16 +45,10 @@
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">My Projects</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="projectTickets.html">Personal Portfolio</a>
+          <ul class="sidenav-second-level collapse" id="collapseExamplePages" ng-controller="projectsController as prjCtrl">
+            <li ng-repeat="project in prjCtrl.projects">
+              <a href="projectTickets.html">{{project.name}}</a>
             </li>
-            <!-- <li>
-              <a href="projectTickets.html">Start Up Project</a>
-            </li>
-            <li>
-              <a href="projectTickets.html">Split Smart Project</a>
-            </li> -->
           </ul>
         </li>
       </ul>
@@ -65,83 +60,6 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-envelope"></i>
-            <span class="d-lg-none">Messages
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-            <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">New Messages:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>David Miller</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Jane Smith</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>John Doe</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-bell"></i>
-            <span class="d-lg-none">Alerts
-              <span class="badge badge-pill badge-warning">6 New</span>
-            </span>
-            <span class="indicator text-warning d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
-          </div>
-        </li>
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
@@ -237,6 +155,27 @@
           </div>
         </div>
       </div>
+      <div class="row" ng-controller="projectsController as prjCtrl">
+        <div class="col-lg-8">
+          <!-- Card Columns Example Social Feed-->
+          <div class="mb-0 mt-4">
+            <i class="fa fa-newspaper-o"></i> Projects</div>
+          <hr class="mt-2">
+          <div class="card-columns">
+            <!-- Example Social Card-->
+            <div class="card mb-3" ng-repeat="project in prjCtrl.projects">
+              <a href="projectTickets.html">
+                <img class="card-img-top img-fluid w-100" src="{{project.image_url}}" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="#">{{project.name}}</a></h6>
+                <p class="card-text small">{{project.description}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- /Card Columns-->
+        </div>
+      </div>
       </div>
       </div>
     <!-- /.container-fluid-->
@@ -283,7 +222,30 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
+    <script>
+    var app = angular.module('myJiraBoardApp', []);
+    app.controller('projectsController', function() {
+      var projects=[
+        {
+            '_id':'1',
+            'name': 'My Jira Board',
+            'description': 'My own task tracking project which works based on agile frame work similar to Jira',
+            'image_url': 'https://startbootstrap.com/assets/img/templates/sb-admin.jpg'
+          },{
+            '_id':'2',
+            'name': 'Start Up Project',
+            'description': 'All clothes manufacturers in one website.',
+            'image_url': 'https://i.pinimg.com/originals/d3/c7/6e/d3c76eea2e5e58ecf5e845c7b1b0bffd.jpg'
+          },{
+            '_id':'3',
+            'name': 'Personal Portfolio',
+            'description': 'Personal portfolio with my hobbies',
+            'image_url': 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/201802/portfolio.jpeg?FiDuEq_3VnAh8wxpLykw3aWI.eIslcbH'
+          }
+        ];
+          this.projects=projects;
+    });
+</script>
   </div>
 </body>
 
