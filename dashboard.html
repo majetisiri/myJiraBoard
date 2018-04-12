@@ -10,6 +10,7 @@
   <title>My Jira Board</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Custom fonts for this template-->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
@@ -175,6 +176,83 @@
           </div>
           <!-- /Card Columns-->
         </div>
+        <div class="col-lg-4">
+           <div class="mb-0 mt-4">
+              <i class="fa fa-newspaper-o"></i> Personal Tasks
+          </div>
+            <hr class="mt-2">
+            <div class="panel panel-info">
+              <div class="panel-heading">To do</div>
+              <div class="panel-body">
+                <div class="form-group">
+                    <label>Checkboxes</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 1
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 2
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 3
+                        </label>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-danger">
+              <div class="panel-heading">Must</div>
+              <div class="panel-body">
+                <div class="form-group">
+                    <label>Checkboxes</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 1
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 2
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 3
+                        </label>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-success">
+              <div class="panel-heading">Done</div>
+              <div class="panel-body">
+                <div class="form-group">
+                    <label>Checkboxes</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 1
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 2
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""> Checkbox 3
+                        </label>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        </div>
       </div>
       </div>
       </div>
@@ -222,30 +300,8 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-    <script>
-    var app = angular.module('myJiraBoardApp', []);
-    app.controller('projectsController', function() {
-      var projects=[
-        {
-            '_id':'1',
-            'name': 'My Jira Board',
-            'description': 'My own task tracking project which works based on agile frame work similar to Jira',
-            'image_url': 'https://startbootstrap.com/assets/img/templates/sb-admin.jpg'
-          },{
-            '_id':'2',
-            'name': 'Start Up Project',
-            'description': 'All clothes manufacturers in one website.',
-            'image_url': 'https://i.pinimg.com/originals/d3/c7/6e/d3c76eea2e5e58ecf5e845c7b1b0bffd.jpg'
-          },{
-            '_id':'3',
-            'name': 'Personal Portfolio',
-            'description': 'Personal portfolio with my hobbies',
-            'image_url': 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/201802/portfolio.jpeg?FiDuEq_3VnAh8wxpLykw3aWI.eIslcbH'
-          }
-        ];
-          this.projects=projects;
-    });
-</script>
+
+    <script src="app.js"></script>
   </div>
 </body>
 

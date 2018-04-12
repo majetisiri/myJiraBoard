@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myJiraBoardApp">
 
 <head>
   <meta charset="utf-8">
@@ -16,6 +16,8 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -39,6 +41,17 @@
             <span class="nav-link-text">Backlog</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">My Projects</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseExamplePages" ng-controller="projectsController as prjCtrl">
+            <li ng-repeat="project in prjCtrl.projects">
+              <a href="projectTickets.html">{{project.name}}</a>
+            </li>
+          </ul>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -59,7 +72,7 @@
         <li class="breadcrumb-item active">Personal Project</li>
       </ol>
       <!-- Example DataTables Card-->
-      <div class="card mb-3">
+      <div class="card mb-3"  ng-controller="ticketsController as ticketsCtrl">
         <div class="card-header">
           <i class="fa fa-table"></i> Tickets</div>
         <div class="card-body">
@@ -76,117 +89,16 @@
                   <th>Created By</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                   <th>Name</th>
-                  <th>Description</th>
-                  <th>Status</th>
-                  <th>Priority</th>
-                  <th>Date Created</th>
-                  <th>Assignee</th>
-                  <th>Created By</th>
-                </tr>
-              </tfoot>
               <tbody>
-                <tr>
-                  <td>MJB 1</td>
-                  <td>create login page view login.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 2</td>
-                  <td>create register page view register.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Dinesh Paladhi</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 3</td>
-                  <td>create forgot password page view forgot-password.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 4</td>
-                  <td>create dashboard page view dashboard.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Dinesh Paladhi</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 5</td>
-                  <td>create backlog page view. Backlog.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 6</td>
-                  <td>create project task page view. /project_id.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 7</td>
-                  <td>create strike through task bar in dashboard</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Dinesh Paladhi</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                
-                <tr>
-                  <td>MJB 8</td>
-                  <td>To be done tickets toBeDone.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 9</td>
-                  <td>review tickets  review.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 10</td>
-                  <td>Bug Tickets bugs.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Srividya Majeti</td>
-                  <td>Srividya Majeti</td>
-                </tr>
-                <tr>
-                  <td>MJB 11</td>
-                  <td>Done Tickets done.html</td>
-                  <td>To Do</td>
-                  <td>Major</td>
-                  <td>04/11/2018</td>
-                  <td>Vamshi Kolanu</td>
-                  <td>Srividya Majeti</td>
+                <tr ng-repeat="ticket in ticketsCtrl.tickets">
+                  <td>{{ticket.name}}</td>
+                  <td>{{ticket.description}}</td>
+                  <td>{{ticket.project}}</td>
+                  <td>{{ticket.status}}</td>
+                  <td>{{ticket.priority}}</td>
+                  <td>{{ticket.createdAt}}</td>
+                  <td>{{ticket.assignee}}</td>
+                  <td>{{ticket.createdBy}}</td>
                 </tr>
               </tbody>
             </table>
@@ -238,6 +150,7 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="app.js"></script>
   </div>
 </body>
 
