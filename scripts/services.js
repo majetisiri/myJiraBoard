@@ -33,6 +33,87 @@ angular.module('myJiraBoardApp')
 
 		   return projFac;
 	})
+    
+    .factory('tasksFactory',function(){
+        var taskFac={};
+        var tasks=[{
+            '_id':'0',
+            'description':'apply for ssn taxes',
+            'status':'must'
+        },{
+            '_id':'1',
+            'description':'pay odu parking fees',
+            'status':'must'
+        },{
+            '_id':'2',
+            'description':'pay rayleigh speeding ticket',
+            'status':'must'
+        },{
+            '_id':'3',
+            'description':'settle up splitwise',
+            'status':'must'
+        },{
+            '_id':'4',
+            'description':'take kurtis pictures',
+            'status':'to do'
+        },{
+            '_id':'5',
+            'description':'grocery shopping',
+            'status':'to do'
+        },{
+            '_id':'6',
+            'description':'pay rent',
+            'status':'done'
+        },{
+            '_id':'7',
+            'description':'upload videos and pictures instagram',
+            'status':'to do'
+        },{
+            '_id':'8',
+            'description':'put dress money in splitwise',
+            'status':'done'
+        }];
+
+        taskFac.getTasks= function(){
+            return tasks;
+        };
+
+        taskFac.getToDoTasks= function(){
+            var toDoTasks = [];
+            var task={};
+            for (var i = 0, len = tasks.length; i < len; i++) {
+                task = tasks[i];
+                if (task['status'] =="to do") { 
+                    toDoTasks.push(task);
+                }
+            }
+            return toDoTasks;
+        };
+
+         taskFac.getMustTasks= function(){
+            var mustTasks = [];
+            var task={};
+            for (var i = 0, len = tasks.length; i < len; i++) {
+                task = tasks[i];
+                if (task['status'] =="must") { 
+                    mustTasks.push(task);
+                }
+            }
+            return mustTasks;
+        };
+         taskFac.getDoneTasks= function(){
+            var doneTasks = [];
+            var task={};
+            for (var i = 0, len = tasks.length; i < len; i++) {
+                task = tasks[i];
+                if (task['status'] =="done") { 
+                    doneTasks.push(task);
+                }
+            }
+            return doneTasks;
+        };
+        return taskFac;
+    })
 
 	.factory('ticketFactory',function(){
 			var ticFac={};
