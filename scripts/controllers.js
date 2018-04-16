@@ -5,8 +5,10 @@ app.controller('projectsController', ['$scope','projectFactory',function($scope,
   	$scope.projects=projectFactory.getProjects();
 }]);
 
-app.controller('ticketsController', ['$scope','ticketFactory',function($scope,ticketFactory) {
- 	$scope.tickets=ticketFactory.getTickets();
+app.controller('ticketsController', ['$scope','$routeParams','ticketFactory',function($scope,$routeParams,ticketFactory) {
+	$scope.prjTickets=ticketFactory.getPrjTickets(parseInt($routeParams.id,10));
+  	$scope.tickets=ticketFactory.getTickets();
+
 }]);
 
 
